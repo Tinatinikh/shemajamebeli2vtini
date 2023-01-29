@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import apiRequests from "./apiRequests"
 import{useQuery} from "react-query";
 import React from 'react';
+import { Link } from "react-router-dom";
 
 
 export function Landing(){
@@ -28,8 +29,9 @@ export function Landing(){
                    <img src={item.image}></img>
                    <h4>{item.title}</h4>
                    <p>{item.description}  </p> 
-                   <h4>{item.price}</h4>          
-           
+                   <h4>{item.price}</h4> 
+                <Link to={"/products/"+ item.id}> <button> See More</button> </Link>     
+        
                 </div>   
             ))
             }

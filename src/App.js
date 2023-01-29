@@ -3,7 +3,8 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import  { NavMenu } from "./NavMenu";
 import {Landing } from "./Landing";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Product1 } from './product pages/Product1';
+import { Products } from './product pages/Products';
+import {Cart} from "./Cart"
 
 
 const Queryclient = new QueryClient();
@@ -14,8 +15,13 @@ function App() {
       <QueryClientProvider client={Queryclient}>
         <BrowserRouter>
         <NavMenu/>
-        {/* აქ რაზე დავასვა როუთი ვერ ვხვდები, ანუ რაზე დაკლიკების დროს <Route path="/" element={<Product1/>}/> */}
-        <Landing />
+        <Routes>
+        <Route path="/" element={<Landing />}/>
+        <Route path='/products/:productId' element={<Products/>}/>
+        <Route path='/cart' element={<Cart/>} />
+        </Routes>
+        
+        
         </BrowserRouter>
 
       </QueryClientProvider>
