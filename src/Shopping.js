@@ -5,13 +5,17 @@ import userReducer from "./hooks/user.reducer";
 import { useTranslation } from "react-i18next";
 
 
-export function Cart (){
-    const [state, dispatch] = useReducer(userReducer, [])
+export function Shopping (){
+    const [products, dispatch] = useReducer(userReducer, [])
     const {data} = useQuery("products", () => apiRequests('GET', "/products"))
     const {t} = useTranslation();
     const [value, setValue] = useState('')
 
-
+    // useEffect(() =>{
+    //     if(data){
+    //         dispatch({type : "set_users", data})
+    //     }
+    // },[data]) 
 
     function addProduct(e){
         e.preventDefault();
@@ -29,7 +33,7 @@ export function Cart (){
     return<div  className="cart">
 
 
-    <div className="lesftside">
+    <div className="lesft side">
         <nav className='head'>
             <li>{t('PRODUCTNAME')}</li>
             <li>{t('QUANTITY')}</li>
@@ -49,7 +53,7 @@ export function Cart (){
                      </div> 
                      <div className="itemsp2">
                     <button onClick={() => dispatch({type: 'decrement'})}>-</button>
-                    <span>{state.count}</span>
+                    <span>{products.count}</span>
                     <button onClick={() => dispatch({type: 'increment'})}>+</button>
                     </div> 
                     <div className="prices">
@@ -96,4 +100,4 @@ export function Cart (){
     </div>
 
 }
-export default Cart;
+export default Shopping;

@@ -3,5 +3,10 @@
     "Woman": "Woman",
     "Man" :"Man",
     "Kid" : "Kid",
-    "Contact" : "Contact"
+    "Contact" : "Contact",
+    "Productname" : "PRODUCTNAME",
+    "Quantity" : "QUANTITY",
+    "Price" : "PRICE",
+    "Total" : "TOTAL"
+
 }   

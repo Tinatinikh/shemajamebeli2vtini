@@ -18,7 +18,7 @@ export function NavMenu ({children}) {
            <nav className="navmenu">
             <div className="div-one">
                 <li> <img  className ="picshop" src={shop} /></li>
-             <Link to={"/Landing/"}> <li> {t('Home')}</li> </Link>
+             <Link to={"/"}> <li> {t('Home')}</li> </Link>
                 <li>{t('Woman')}</li>
                 <li>{t('Man')}</li>
                 <li>{t('Kid')}</li>
@@ -26,7 +26,7 @@ export function NavMenu ({children}) {
           
             </div>
             <div className="div-two">
-             <Link to={"/Cart"}>   <img  className="pics" src={shopping} /> </Link>
+             <Link to={"/cart"}>   <img  className="pics" src={shopping} /> </Link>
                 <img  className ="pics" src={favorite} />
                 <img  className ="pics" src={account} />
                 <img  onClick={() => i18n.changeLanguage("geo")} className="flag-geo" src={Geo} />
