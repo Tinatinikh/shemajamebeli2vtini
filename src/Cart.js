@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 
 export function Cart (){
-    const [state, dispatch] = useReducer(userReducer, [])
+    const [products, dispatch] = useReducer(userReducer, [])
     const {data} = useQuery("products", () => apiRequests('GET', "/products"))
     const {t} = useTranslation();
     const [value, setValue] = useState('')
@@ -40,8 +40,8 @@ export function Cart (){
 
         <div className="maincproducts">
         { 
-                data.map(item => { 
-                    if(item.id<6) return (
+                data.map(item => { if (addProduct)
+                     return (
                     <div className="items" key={item.id} >
                      <div className="itemsp1">
                      <img  className="productpic" src={item.image}></img>
@@ -49,7 +49,7 @@ export function Cart (){
                      </div> 
                      <div className="itemsp2">
                     <button onClick={() => dispatch({type: 'decrement'})}>-</button>
-                    <span>{state.count}</span>
+                    <span>{products.count}</span>
                     <button onClick={() => dispatch({type: 'increment'})}>+</button>
                     </div> 
                     <div className="prices">
